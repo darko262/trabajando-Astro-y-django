@@ -1,0 +1,27 @@
+---
+import { Icon } from 'astro-icon'
+import { getImage, Image } from 'astro:assets'
+
+import myImage from '../assets/foto2.jpg'
+
+export interface Props {
+	id: string
+	title: string
+	img: ImageMetadata
+}
+const { id, title, img } = Astro.props
+const optimizedBackground = await getImage({ src: img, format: 'webp' })
+---
+
+<a href="#" class='bg-cover bg-center  rounded-3xl hover:scale-105 ' style={`background-image: url(${optimizedBackground.src});`}>
+	<div class="h-full backdrop-blur-sm grid  grid-cols-2  backdrop-grayscale rounded-s-3xl">
+		<Image src={img} alt='' class=' h-full my-auto  object-cover  rounded-e-full object-center  ' />
+
+		<div class='h-full place-content-center  text-center grid  backdrop-opacity-80 font-bold'>
+			<h3 class='text-center'>{title}</h3><p class=' '>
+				Use the power of Tailwind to greatly improve your productivity and enhance your developer
+				workflow.
+			</p>
+		</div>
+	</div>
+</a>

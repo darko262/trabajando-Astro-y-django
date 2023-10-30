@@ -1,0 +1,52 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import { getImage, Image } from 'astro:assets'
+
+import { getProductId } from '../../api/proyectos'
+export const prerender = false
+const { title } = Astro.params
+let product
+
+if (title) {
+	product = await getProductId({ title })
+}
+// console.log(product)
+// let product
+// const { id, title } = Astro.params
+// product= await getProductId({ title })
+console.log(product.post)
+
+// const response = await fetch(` http://127.0.0.1:8000/blog/list/${title}`);
+// const data = await response.json();
+// console.log(data)
+
+---
+
+<Layout title={` trabajo ${product.post.title}`}>
+	<section class="h-1/2 bg-cover bg-no-repeat bg-center drop-shadow-2xl rounded-b-xl"style={{ backgroundImage: `url(${product.post.thumbnail})` }}>
+        <div class=" h-96">
+            <div class=" flex justify-center items-center flex-col h-full text-white backdrop-blur-sm font-mono w-10/12  mx-auto  bg-black bg-opacity-30 rounded-2xl">
+                <h2 class=" text-4xl">{product.post.title}</h2>
+                {/* <h4>{description}</h4> */}
+              
+            </div>
+
+        </div>
+    </section>
+		<div class='bg-red-400 ' >
+			<div class='h-52 backdrop-blur-sm grid grid-cols-2 backdrop-grayscale rounded-s-3xl'>
+				<img
+					src={product.post.thumbnail}
+					alt='imagen'
+					class='overflow-hidden h-52 w-52 my-auto object-cover rounded-e-full object-center group-hover:scale-105 transition-all group-hover:rounded-full'
+				/>
+
+				<div class='h-full place-content-center text-center grid backdrop-opacity-80 font-bold'>
+					<h3 class='text-center text-white'>{product.post.title}</h3><p class=''>
+						{product.post.content}
+					</p>
+				</div>
+			</div>
+		</div>
+	
+</Layout>

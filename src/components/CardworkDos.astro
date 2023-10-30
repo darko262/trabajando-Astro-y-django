@@ -1,0 +1,31 @@
+---
+import { Icon } from 'astro-icon'
+import { getImage, Image } from 'astro:assets'
+
+import myImage from '../assets/foto2.jpg'
+
+export interface Props {
+	id: string,
+	title: string,
+	content:  string,
+	thumbnail:string
+}
+
+const { id, title, content, thumbnail} = Astro.props
+
+---
+
+<a href={`/posts/${title}/`} class='bg-cover bg-center  rounded-3xl group' >
+	
+
+	<div class=" h-52 backdrop-blur-sm grid  grid-cols-2  backdrop-grayscale rounded-s-3xl">
+	
+	<img src={thumbnail} alt='imagen' class=' overflow-hidden h-52  w-52 my-auto  object-cover  rounded-e-full object-center  group-hover:scale-105 transition-all  group-hover:rounded-full' />
+		
+		<div class='h-full place-content-center  text-center grid  backdrop-opacity-80 font-bold'>
+			<h3 class='text-center'>{title}</h3><p class=' '>
+				{content}
+			</p>
+		</div>
+	</div>
+</a>

@@ -1,0 +1,74 @@
+---
+import { Icon } from 'astro-icon'
+import { getImage, Image } from 'astro:assets'
+const { src = '/astronaut-hero-img.webp' } = Astro.props
+import myImage from '../assets/foto4.jpg'
+import myImage2 from '../assets/foto5.png'
+import video from '../assets/video2.mp4'
+const optimizedBackground = await getImage({ src: myImage, format: 'webp' })
+---
+
+<section
+	class='bg-center bg-cover bg-no-repeat sepia-[.35]'
+	style={`background-image: url(${optimizedBackground.src});`}
+>
+	<!-- <div class='absolute inset-0 h-full w-full object-cover opacity-70'>
+		<video
+			src='https://cms.polinations.com/assets/354b2550-5c05-44f5-9be9-8fd2f7cba7b6'
+			autoplay=''
+			muted=''
+			loop=''
+			playsinline=''></video>
+	</div> -->
+
+	<div class='py-8 px-4 mx-auto max-w-screen-lg text-center lg:py-16 lg:px-12'>
+		<h1
+			class='mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white'
+		>
+			Custom Garage
+		</h1>
+		<p class='text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400'>
+			Here at Flowbite we focus on markets where technology, innovation, and capital can unlock
+			long-term value and drive economic growth.
+		</p>
+		<div
+			class='flex flex-col space-y-4 sm:flex-row sm:justify-center sm:h-1/3 sm:w-1/3 h-1/2 mx-auto'
+		>
+			<!-- <Image src={myImage2} alt='Una descripción de mi imagen.' /> -->
+			<video
+				src={video}
+				autoplay=''
+				muted=''
+				loop=''
+				playsinline=''></video>
+		</div>
+		<div class='flex w-full justify-center sm:h-1/3 h-1/5'>
+			<button
+				type='button'
+				class='w-1/2 sm:w-1/5 text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-600 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 mr-2 mb-2'
+			>
+				<Icon name='carbon:task-tools' class='mr-1 sm:h-full h-5' />Servicios
+			</button>
+			<button
+				type='button'
+				class='w-1/2 sm:w-1/5 text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-600 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 mr-2 mb-2'
+			>
+				<Icon name='bi:phone-fill' class='mr-1 h-5 sm:h-full' />Contactanos
+			</button>
+
+			<!-- <button
+				type='button'
+				class='text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-600 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 mr-2 mb-2'
+			>
+				<Icon name='emojione:motor-scooter' />BMW Connect with MetaMask
+			</button>
+			<button
+				type='button'
+				class='text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-600 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 mr-2 mb-2'
+			>
+				<Icon name='mdi:contact-mail' />BMW Connect with MetaMask
+			</button> -->
+		</div>
+		<div class='absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-indigo-500'></div>
+	</div>
+</section>

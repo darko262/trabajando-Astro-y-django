@@ -1,0 +1,27 @@
+---
+import Cardwork from '../components/CardworkDos.astro'
+import React from 'react';
+
+// import { talleres } from '../Data/Datos'
+// const response = await fetch(' http://127.0.0.1:8000/blog/list');
+// const data = await response.json();
+// const randomUser = data.results.posts ;
+// console.log(randomUser)
+import { getProduct, getProductId} from '../api/proyectos'
+const randomUser = await getProduct()
+// const prueba = await getProductId('prueba4')
+---
+
+<div
+	class='mx-auto max-w-7xl w-full px-5 sm:px-8 md:px-14 lg:px-5 flex flex-col lg:flex-row gap-10 lg:gap-12 py-12 text-white'
+>
+<h1 class='text-heading-1 font-semibold text-2xl sm:text-3xl md:text-4xl'>
+   Trabajos recientes
+</h1>
+
+
+	<div class='grid grid-cols-1 md:grid-cols-2 gap-12 lg:grid-cols-2'>
+		{randomUser.map(({ id, title, content, thumbnail }) => <Cardwork id={id} title={title} content={content} thumbnail={thumbnail} />)}
+		
+	</div>
+</div>

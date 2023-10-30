@@ -1,0 +1,35 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Carousel from '../components/Carousel.astro';
+import Hero from '../components/Hero.astro'
+import { Icon } from 'astro-icon';
+import HeroLogo from '../components/HeroLogo.astro';
+import HeroPrueba from '../components/HeroPrueba.astro';
+import Datos from '../components/Datos.astro';
+import Service from '../components/Service.astro';
+import {Obtencion} from '../components/Work.jsx';
+import Testimonio from '../components/Testimonio.astro';
+import Contact from '../components/Contact.astro';
+import Work from '../components/Work.astro';
+
+---
+
+<Layout title="Custom Garage.">
+	<main>
+		
+			<!-- <Hero />
+			<HeroLogo/> -->
+			<HeroPrueba/>
+			<Datos/>
+			<Service/>
+			<!-- <Obtencion client:load/> -->
+			<Work />
+			<Testimonio/>
+			<Contact/>
+			<HeroLogo/>
+            
+			
+			
+	</main>
+</Layout>
+

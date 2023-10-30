@@ -1,0 +1,61 @@
+---
+interface Props {
+	title: string
+}
+import fondo from '../assets/abstract-timekeeper.svg'
+import { ViewTransitions } from 'astro:transitions'
+const { title } = Astro.props
+import Footer from '../components/Footer.astro'
+import Navbar from '../components/Navbar.astro';
+---
+
+<!doctype html>
+<html lang='en'>
+	<head>
+		<meta charset='UTF-8' />
+		<meta name='description' content='Astro description' />
+		<meta name='viewport' content='width=device-width' />
+		<link rel='icon' type='image/svg+xml' href='/icono2.ico' />
+		<meta name='generator' content={Astro.generator} />
+		<title>{title}</title>
+		<ViewTransitions />
+	</head>
+	<body>
+		<Navbar/>
+		<slot />
+		<Footer/>
+	</body>
+</html>
+<style is:global>
+	:root {
+		--accent: 136, 58, 234;
+		--accent-light: 224, 204, 250;
+		--accent-dark: 49, 10, 101;
+		--accent-gradient: linear-gradient(
+			45deg,
+			rgb(var(--accent)),
+			rgb(var(--accent-light)) 30%,
+			white 60%
+		);
+	}
+	html {
+		font-family: system-ui, sans-serif;
+		background: url('../assets/abstract-timekeeper.svg');
+		background-size: cover; /* Esto ajustará el tamaño del fondo al tamaño de la ventana del navegador */
+		background-repeat: no-repeat; /* Esto evitará la repetición del fondo */
+		background-position: center ;
+
+	
+	}
+	code {
+		font-family:
+			Menlo,
+			Monaco,
+			Lucida Console,
+			Liberation Mono,
+			DejaVu Sans Mono,
+			Bitstream Vera Sans Mono,
+			Courier New,
+			monospace;
+	}
+</style>
